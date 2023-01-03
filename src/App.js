@@ -1,10 +1,19 @@
-import Calculator from './Component/Calculator';
+import Bracket from './Composition/Bracket';
+import Emoji from './Composition/Emoji';
+import Text from './Composition/Text';
 
 function App() {
-    // const quantities = [1, 2, 3];
     return (
         <div>
-            <Calculator />
+            <Emoji>
+                {(addEmojiHandler) => (
+                    <Bracket>
+                        {(addBracket) => (
+                            <Text addEmojiHandler={addEmojiHandler} addBracket={addBracket} />
+                        )}
+                    </Bracket>
+                )}
+            </Emoji>
         </div>
     );
 }
