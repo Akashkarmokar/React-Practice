@@ -9,11 +9,12 @@ export default function Content() {
             <Counter
                 renderLogic={(counter, handleCounter) => (
                     <themeContext.Consumer>
-                        {({ theme }) => (
+                        {({ theme, switchTheme }) => (
                             <HoverCounter
                                 counter={counter}
                                 handleCounter={handleCounter}
                                 theme={theme}
+                                switchTheme={switchTheme}
                             />
                         )}
                     </themeContext.Consumer>
