@@ -7,25 +7,24 @@ import ThemeContext from './Contexts/themeContext';
 
 class App extends React.Component {
     state = {
+        // eslint-disable-next-line react/no-unused-state
         theme: 'dark',
-    };
-
-    switchTheme = () => {
-        this.setState(({ theme }) => {
-            if (theme === 'dark') {
+        // eslint-disable-next-line react/no-unused-state
+        switchTheme: () => {
+            this.setState(({ theme }) => {
+                if (theme === 'dark') {
+                    return {
+                        theme: 'light',
+                    };
+                }
                 return {
-                    theme: 'light',
+                    theme: 'dark',
                 };
-            }
-            return {
-                theme: 'dark',
-            };
-        });
+            });
+        },
     };
 
     render() {
-        const { theme } = this.state;
-
         return (
             <div>
                 <h1>Hello world</h1>
@@ -35,7 +34,7 @@ class App extends React.Component {
                         <ClickCounter counter={counter} handleCounter={handleCounter} />
                     )}
                 />
-                <ThemeContext.Provider value={{ theme, switchTheme: this.switchTheme }}>
+                <ThemeContext.Provider value={this.state}>
                     <Section />
                 </ThemeContext.Provider>
             </div>
