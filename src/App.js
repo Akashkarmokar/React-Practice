@@ -1,26 +1,33 @@
+import React from 'react';
 import ClickCounter from './Component/ClickCounter';
 import Counter from './Component/Counter';
-import HoverCounter from './Component/HoverCounter';
+import Section from './Component/Section';
 import User from './Component/User';
+import ThemeContext from './Contexts/themeContext';
 
-function App() {
-    // const quantities = [1, 2, 3];
-    return (
-        <div>
-            <h1>Hello world</h1>
-            <User render={(isLoggedIn) => (isLoggedIn ? 'Akash' : 'Unknown')} />
-            <Counter
-                renderLogic={(counter, handleCounter) => (
-                    <ClickCounter counter={counter} handleCounter={handleCounter} />
-                )}
-            />
-            <Counter
-                renderLogic={(counter, handleCounter) => (
-                    <HoverCounter counter={counter} handleCounter={handleCounter} />
-                )}
-            />
-        </div>
-    );
+class App extends React.Component {
+    state = {
+        theme: 'dark',
+    };
+
+    render() {
+        const { theme } = this.state;
+
+        return (
+            <div>
+                <h1>Hello world</h1>
+                <User render={(isLoggedIn) => (isLoggedIn ? 'Akash' : 'Unknown')} />
+                <Counter
+                    renderLogic={(counter, handleCounter) => (
+                        <ClickCounter counter={counter} handleCounter={handleCounter} />
+                    )}
+                />
+                <ThemeContext.Provider value={{ theme }}>
+                    <Section />
+                </ThemeContext.Provider>
+            </div>
+        );
+    }
 }
 
 export default App;
