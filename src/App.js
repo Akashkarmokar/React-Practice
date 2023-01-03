@@ -1,10 +1,12 @@
-import Calculator from './Component/Calculator';
+import ClickCounter from './Component/ClickCounter';
+import HoverCounter from './Component/HoverCounter';
 
 function App() {
     // const quantities = [1, 2, 3];
     return (
         <div>
-            <Calculator />
+            <ClickCounter />
+            <HoverCounter />
         </div>
     );
 }
