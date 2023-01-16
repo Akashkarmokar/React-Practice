@@ -1,10 +1,16 @@
-import Calculator from './Component/Calculator';
+// import Calculator from './Component/Calculator';
+import { useState } from 'react';
+import MyComponent from './Component/MyComponent';
 
 function App() {
-    // const quantities = [1, 2, 3];
+    const [isShow, setShow] = useState(true);
     return (
         <div>
-            <Calculator />
+            {/* <Calculator /> */}
+            <div>{isShow && <MyComponent />}</div>
+            <button type="button" onClick={() => setShow((preIsShowValue) => !preIsShowValue)}>
+                {isShow ? 'Hide' : 'Show'}
+            </button>
         </div>
     );
 }
