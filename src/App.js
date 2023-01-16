@@ -1,4 +1,5 @@
-import Todo from './Component/Todo';
+// import Todo from './Component/Todo';
+import Todo from './Component/TodoFunctional';
 
 function App() {
     // const quantities = [1, 2, 3];
